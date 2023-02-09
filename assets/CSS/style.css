@@ -214,6 +214,7 @@ footer ul {
     color: white;
 }
 
-footer ul > li > a, p {
+footer ul > li > a, 
+footer p {
     color: white;
 }

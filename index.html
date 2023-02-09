@@ -124,6 +124,7 @@
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-md-12" data-aos="fade-up" data-aos-delay="200">
               <form action="#" class="row g-3">
@@ -133,7 +134,6 @@
                     type="text"
                     class="form-control"
                     id="userCityInput"
-                    aria-describedby="emailHelp"
                   />
                 </div>
 
@@ -160,12 +160,22 @@
                   <label for="formLocationRange">Range</label>
                   <input
                     type="range"
+                    min="0"
+                    max="1000"
                     class="form-control-range"
                     id="formLocationRange"
+                    list="markers"
                   />
+                  <datalist id="markers">
+                    <option value="0" label="0"></option>
+                    <option value="250" label="250"></option>
+                    <option value="500" label="500"></option>
+                    <option value="750" label="750"></option>
+                    <option value="1000" label="1000"></option>
+                  </datalist>
                 </div>
                 <div class="form-group text-center col-md-12">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                 </div>
               </form>
             </div>

@@ -21,8 +21,8 @@ function showSlides() {
 }
 
 // Geolocation API
-const buttonLocation = $("#getloc");
-const locationArea = $("#current-coords");
+const buttonLocation = $("#current-loc-button");
+const locationArea = $("#show-coords");
 
 function getCurrentLocation() {
   if (navigator.geolocation) {
@@ -36,12 +36,13 @@ function showPosition(position) {
   console.log("Latitude: " + position.coords.latitude);
   console.log("Longitude: " + position.coords.longitude);
 
-  locationArea.text(
+  let curLoc = $("<h5>").text(
     "Latitude: " +
       position.coords.latitude +
       "  Longitude: " +
       position.coords.longitude
   );
+  locationArea.append(curLoc);
 }
 
 // Shows the error given by the browser in case Lcoation Data can't be accessed
@@ -68,5 +69,6 @@ function currentLocErrors(error) {
 
 // When Button to Get Current Location is pressed the function to get the data is being run
 buttonLocation.on("click", function (event) {
+  event.preventDefault();
   getCurrentLocation();
 });

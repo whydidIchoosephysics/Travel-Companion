@@ -136,8 +136,10 @@
                     aria-describedby="emailHelp"
                   />
                 </div>
-                <div class="form-group col-md-3">
+
+                <div class="form-group col-md-3" id="show-coords">
                   <button
+                    id="current-loc-button"
                     type="search"
                     class="btn btn-secondary mx-sm-3 mb-5"
                     style="margin-top: 35px; margin-bottom: 1rem !important"
@@ -145,6 +147,7 @@
                     Use current location
                   </button>
                 </div>
+
                 <div class="form-group col-md-4">
                   <label for="startDate">Start date: </label>
                   <input type="date" class="form-control" id="userStartDate" />
@@ -450,22 +453,6 @@
         </div>
       </div>
     </footer>
-
-    <div id="box">
-      <h2>Click the button to get your coordinates.</h2>
-
-      <button type="button" class="btn btn-primary" id="getloc">
-        Get Your Location
-      </button>
-
-      <p id="current-coords"></p>
-
-      <h2>Look Up Events</h2>
-
-      <button type="button" class="btn btn-primary" id="search-events">
-        Ticketmaster Events
-      </button>
-    </div>
 
     <!-- Moment JS -->
     <script

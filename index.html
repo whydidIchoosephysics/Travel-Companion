@@ -31,7 +31,426 @@
     <link rel="stylesheet" href="./assets/CSS/style.css" />
   </head>
 
-  <body>
+  <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <img
+        src="/docs/4.6/assets/brand/bootstrap-solid.svg"
+        width="30"
+        height="30"
+        class="d-inline-block align-top"
+        alt=""
+      />
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"
+        >Travel Companion</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#page-top">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#events">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#weather">Weather</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#restaurants"
+              >Restaurants</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img
+          src="./assets/Images/travel-industry-air.jpg"
+          style="width: 100%"
+        />
+        <div class="text">Caption Text</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img
+          src="./assets/Images/Travel-Demand-is-Back-to-Pre-Pandemic-Levels-and-What-it-Means-To-You-This-Summer3.jpg"
+          style="width: 100%"
+        />
+        <div class="text">Caption Two</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img
+          src="./assets/Images/map-travel-travel-map-explore.jpg"
+          style="width: 100%"
+        />
+        <div class="text">Caption Three</div>
+      </div>
+    </div>
+    <br />
+
+    <div style="text-align: center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <main class="page-wrapper">
+      <!-- Form -->
+      <section class="page-section" id="form">
+        <div class="container section">
+          <div class="row">
+            <div class="col-12">
+              <div class="setion-title" data-aos="fade-up" data-aos-delay="100">
+                <h3>Let's travel to...</h3>
+                <div class="line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" data-aos="fade-up" data-aos-delay="200">
+              <form action="#" class="row g-3">
+                <div class="form-group col-md-8">
+                  <label for="inputCity">City: </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="userCityInput"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+                <div class="form-group col-md-3">
+                  <button
+                    type="search"
+                    class="btn btn-secondary mx-sm-3 mb-5"
+                    style="margin-top: 35px; margin-bottom: 1rem !important"
+                  >
+                    Use current location
+                  </button>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="startDate">Start date: </label>
+                  <input type="date" class="form-control" id="userStartDate" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="endDate">End date: </label>
+                  <input type="date" class="form-control" id="userEndDate" />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="formLocationRange">Range</label>
+                  <input
+                    type="range"
+                    class="form-control-range"
+                    id="formLocationRange"
+                  />
+                </div>
+                <div class="form-group text-center col-md-12">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Events -->
+      <section id="events" class="section-padding section-connector">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+              <div class="setion-title">
+                <h3>Events</h3>
+                <div class="line"></div>
+              </div>
+            </div>
+
+            <!-- Card 1 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Weather -->
+      <section id="weather" class="section-padding section-connector">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+              <div class="setion-title">
+                <h3>Weather</h3>
+                <div class="line"></div>
+              </div>
+            </div>
+
+            <!-- Card 1 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Restaurants -->
+      <section id="events" class="section-padding section-connector">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+              <div class="setion-title">
+                <h3>Restaurants</h3>
+                <div class="line"></div>
+              </div>
+            </div>
+
+            <!-- Card 1 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+              <div class="card">
+                <img
+                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">Prework Study Guide</h3>
+                  <p class="card-text">Description</p>
+                  <a href="#" class="btn btn-primary">GitHub Page</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-5">
+            <div class="col-md-4">
+              <h4>Sources</h4>
+              <ul>
+                <li class="nav-item">
+                  <a class="icon" href="https://developer.ticketmaster.com"
+                    >Ticket Master API</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="icon" href="https://openweathermap.org/"
+                    >Open Weather Map API</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="icon" href="#"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h4>Support</h4>
+              <ul>
+                <li class="nav-item">
+                  <a class="icon" href="#">FAQ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="icon" href="#">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row justify-content-center">
+            <p class="mb-0">© 2023. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <div id="box">
       <h2>Click the button to get your coordinates.</h2>
 

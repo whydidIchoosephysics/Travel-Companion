@@ -1,43 +1,3 @@
-function displayCityInfo() {
-
-    // variables for testing (to be replaced)
-    let long = -0.156800
-    let lat = 51.520611
-    let range = 1000
-    let searchLimit = 2
-
-
-    // Here we are building the URL we need to query the database
-    let queryURL = "https://api.geoapify.com/v2/places?categories=catering.restaurant&filter=circle:" + long + ',' + lat + ',' + range + "&limit=" + searchLimit + "&apiKey=495c099f0ea7499888669a0f2652bf40"
-
-
-    // Creating an AJAX call for the specific city 
-    
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(queryURL);
-
-        //console log the name of the restaurant 
-        console.log(response.features[0].properties.name)
-
-
-    })
-};
-
-displayCityInfo()
-
-//https://api.geoapify.com/v2/places?categories=catering.restaurant&filter=circle:
-
-//-0.156800,51.520611,1000
-
-//&limit=
-
-//5
-
-//&apiKey=495c099f0ea7499888669a0f2652bf40
-
 let slideIndex = 0;
 showSlides();
 
@@ -57,3 +17,17 @@ function showSlides() {
   dots[slideIndex-1].className += " active";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
+
+
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer 819adGeqBu-wcCONjR2MfPzxN1xl0hSyKdoH3_VHe4DlQsczZAJd5iUlru4Zzzs_aLiA-IU3m0OgtJMbfxx_nKUq-jBdr0jLauzxH5L2YnXDQdmjWNhN66CK70XlY3Yx'
+  }
+};
+
+fetch('https://api.yelp.com/v3/businesses/search?latitude=' + latitude + '&longitude=' + longitude + '&term=restaurants&radius= ' + range + '&sort_by=best_match&limit=5', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));

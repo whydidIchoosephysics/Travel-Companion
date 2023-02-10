@@ -1,33 +1,34 @@
 /* Global styles */
 html,
 body {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-    font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+  font-family: "Muli", "Helvetica", "Arial", "sans-serif";
 }
 
 a {
-    color: rgb(96, 25, 47);
-    transition: all .35s;
-    text-decoration: none;
+  color: rgb(96, 25, 47);
+  transition: all 0.35s;
+  text-decoration: none;
 }
 
-a:hover, a:focus {
-    color: blanchedalmond;
+a:hover,
+a:focus {
+  color: blanchedalmond;
 }
 
 hr {
-    max-width: 100px;
-    margin: 25px auto 0;
-    border-width: 1px;
-    border-color: aliceblue;
+  max-width: 100px;
+  margin: 25px auto 0;
+  border-width: 1px;
+  border-color: aliceblue;
 }
 
 hr.light {
-    border-color: aquamarine;
+  border-color: aquamarine;
 }
 
 h1,
@@ -36,73 +37,81 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
-    font-weight: 200;
-    letter-spacing: 1px;
-    margin: 0;
+  font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";
+  font-weight: 200;
+  letter-spacing: 1px;
+  margin: 0;
 }
 
 p {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 section {
-    padding: 100px 0;
+  padding: 100px 0;
 }
 
 section h2 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 /* Navigation bar styles */
 #mainNav {
-    border-color: brown;
-    background-color: #21325a;
-    transition: all .35s;
-    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
-    font-weight: 200;
-    letter-spacing: 1px;
+  border-color: brown;
+  background-color: #21325a;
+  transition: all 0.35s;
+  font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";
+  font-weight: 200;
+  letter-spacing: 1px;
 }
 
 #mainNav .navbar-brand {
-    color: blanchedalmond;
-    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
-    font-weight: 200;
-    letter-spacing: 1px;
+  color: blanchedalmond;
+  font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";
+  font-weight: 200;
+  letter-spacing: 1px;
 }
 
 #mainNav .navbar-brand:hover,
 #mainNav .navbar-brand:focus {
-    color: rgb(238, 225, 204);
+  color: rgb(238, 225, 204);
 }
 
 #mainNav .navbar-toggler {
-    font-size: 12px;
-    padding: 8px 10px;
-    color: white;
+  font-size: 12px;
+  padding: 8px 10px;
+  color: white;
 }
 
 #mainNav .navbar-nav {
-    margin-left: 0px !important;
+  margin-left: 0px !important;
 }
 
 #mainNav .navbar-nav > li > a {
-    font-size: 11px;
-    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: white;
+  font-size: 11px;
+  font-family: "Lato", "Helvetica", "Arial", "sans-serif";
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
 }
 
 #mainNav .navbar-nav > li > a:hover,
 #mainNav .navbar-nav > li > a:focus:hover {
-    color: blanchedalmond;
+  color: blanchedalmond;
 }
 
-* {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
-.mySlides {display: none;}
-img {vertical-align: middle;}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, sans-serif;
+}
+.mySlides {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
 
 /* Slideshow container */
 .slideshow-container {
@@ -153,49 +162,77 @@ img {vertical-align: middle;}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
+  .text {
+    font-size: 11px;
+  }
 }
 
 /* Form */
 #form .form-control {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 #form .form-control:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 #form input.form-control {
-    height: 44px;
+  height: 44px;
 }
 
 #form button {
-    background-color: #21325a;
-    color: white;
+  background-color: #21325a;
+  color: white;
 }
+
+datalist {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    writing-mode: vertical-lr;
+    width: 200px;
+  }
+  
+  option {
+    padding: 0;
+  }
+  
+  input[type="range"] {
+    width: 200px;
+    margin: 0;
+  }
+  
 
 /* Footer */
 footer {
-    background-color: #21325a;
-    padding-top: 80px;
+  background-color: #21325a;
+  padding-top: 80px;
 }
 
 footer h4 {
-    color: white;
-    margin-bottom: 24px;
+  color: white;
+  margin-bottom: 24px;
 }
 
 footer ul {
-    list-style: none;
-    color: white;
+  list-style: none;
+  color: white;
 }
 
-footer ul > li > a, p {
-    color: white;
+footer ul > li > a {
+  color: white;
+}
+
+footer p {
+  color: white;
 }

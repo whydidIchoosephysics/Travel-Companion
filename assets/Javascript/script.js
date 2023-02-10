@@ -74,9 +74,9 @@ buttonLocation.on("click", function (event) {
   getCurrentLocation();
 });
 
-slides[slideIndex - 1].style.display = "block";
-dots[slideIndex - 1].className += "active";
-setTimeout(showSlides, 2000); // Change image every 2 seconds
+// slides[slideIndex - 1].style.display = "block";
+// dots[slideIndex - 1].className += "active";
+// setTimeout(showSlides, 2000); // Change image every 2 seconds
 
 let form = $("#form");
 

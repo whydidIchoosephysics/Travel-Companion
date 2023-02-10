@@ -1,16 +1,16 @@
-const ticketmasterKey = "MwYYGqDzXc2DG7lbU0nTvjF0f0KBU9Aj";
+const ticketmasterKey = "aikirkRksdSnXbNYnM6Juu7rGL6kxPwo";
 const eventsArea = $("#events");
 let currentCoordinates = "";
 // const buttonLocation = $("#current-loc-button");
 
 function getEventData(lat, lon, ran) {
   let apiKey = ticketmasterKey;
-  let typeofEvent = "/discovery/v2/attractions";
+  let typeofEvent = "/discovery/v2/events";
   let numberofEvents = "5";
-  let latitude = "53.483959";
-  let longitude = "-2.244644";
+  let latitude = "51.507";
+  let longitude = "-0.1276";
   let latlon = latitude + "," + longitude;
-  let range = 100;
+  let range = 1000;
 
   $.ajax({
     type: "GET",
@@ -34,7 +34,7 @@ function getEventData(lat, lon, ran) {
 
       let eventName = promise._embedded.attractions[0].name;
       let ID = promise._embedded.attractions[0].id;
-      let imageURL = promise._embedded.attractions[0].images[1];
+      let imageURL = promise._embedded.attractions[0].images[1].url;
 
       console.log(promise._embedded.attractions[0]);
       console.log(eventName);
@@ -44,7 +44,35 @@ function getEventData(lat, lon, ran) {
     .catch(function (xhr, status, err) {});
 }
 
-function createCard() {
+// Not Working
+// function getEventInfo() {
+//   let apiKey = ticketmasterKey;
+//   let Id = "K8vZ91756F0";
+
+//   $.ajax({
+//     type: "GET",
+//     // url:
+//     //   "https://app.ticketmaster.com/discovery/v2/events/" +
+//     //   Id +
+//     //   ".json?apikey=" +
+//     //   apiKey,
+//     url: "https://app.ticketmaster.com/discovery/v2/events/G5djZ97WU4Ozh.json?locale=en?apikey=aikirkRksdSnXbNYnM6Juu7rGL6kxPwo",
+//     async: true,
+//     dataType: "json",
+//   }).then(function (promise) {
+//     console.log("Ticketmaster sent you data");
+//     console.log(promise);
+
+//     // Populate cards
+
+//     let eventName = promise._embedded.attractions[0].name;
+
+//     console.log(promise._embedded.attractions[0]);
+//     console.log(eventName);
+//   });
+// }
+
+function createCard(eventName, eventImg) {
   // Create card elements
   let cardContainer = $("<div>");
   cardContainer.addClass("cardContainer col-lg-3 col-md-3 col-sm-12");
@@ -75,4 +103,32 @@ function createCard() {
 
 buttonLocation.on("click", function (event) {
   getEventData();
+  // getEventInfo();
+  createCard();
+});
+
+// const eventID = "G5v0Z98m2j-38";
+const eventID = "G5djZ97WU4Ozh";
+
+const eventUrl = `https://app.ticketmaster.com/discovery/v2/events/${eventID}.json?apikey=${ticketmasterKey}`;
+
+const eventsUrl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${ticketmasterKey}`;
+
+const attractionUrl = `https://app.ticketmaster.com/discovery/v2/attractions/K8vZ9175BhV.json?apikey=${ticketmasterKey}`;
+
+$.ajax({
+  type: "GET",
+  url: eventUrl,
+  async: true,
+  dataType: "json",
+  success: function (json) {
+    console.log(json);
+
+    // Parse the response.
+    // Do other things.
+  },
+  error: function (xhr, status, err) {
+    // This time, we do not end up here!
+    console.log(err);
+  },
 });

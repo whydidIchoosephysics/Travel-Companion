@@ -22,18 +22,7 @@ function showSlides() {
 }
 
 
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer 819adGeqBu-wcCONjR2MfPzxN1xl0hSyKdoH3_VHe4DlQsczZAJd5iUlru4Zzzs_aLiA-IU3m0OgtJMbfxx_nKUq-jBdr0jLauzxH5L2YnXDQdmjWNhN66CK70XlY3Yx'
-  }
-};
 
-fetch('https://api.yelp.com/v3/businesses/search?latitude=' + latitude + '&longitude=' + longitude + '&term=restaurants&radius= ' + range + '&sort_by=best_match&limit=5', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
 // Geolocation API
 const buttonLocation = $("#current-loc-button");
 const locationArea = $("#show-coords");
@@ -90,7 +79,7 @@ buttonLocation.on("click", function (event) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += "active";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
+
 
   let form = $("#form");
   
@@ -107,4 +96,23 @@ buttonLocation.on("click", function (event) {
     console.log(startDate);
     console.log(endDate);
     console.log(range);
+
+    restaurantInfo(cityName,range)
+
   });
+
+  function restaurantInfo (city,range) {
+  
+    const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer 819adGeqBu-wcCONjR2MfPzxN1xl0hSyKdoH3_VHe4DlQsczZAJd5iUlru4Zzzs_aLiA-IU3m0OgtJMbfxx_nKUq-jBdr0jLauzxH5L2YnXDQdmjWNhN66CK70XlY3Yx'
+    }
+  };
+  
+  fetch('https://api.yelp.com/v3/businesses/search?latitude=' + latitude + '&longitude=' + longitude + '&term=restaurants&radius= ' + range + '&sort_by=best_match&limit=5', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+  }

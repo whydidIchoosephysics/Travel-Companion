@@ -43,7 +43,7 @@ function showPosition(position) {
       "  Longitude: " +
       position.coords.longitude
   );
-  locationArea.append(curLoc);
+  $("#show-coords").append(curLoc);
 }
 
 // Shows the error given by the browser in case Lcoation Data can't be accessed
@@ -68,7 +68,7 @@ function currentLocErrors(error) {
   }
 }
 
-// // When Button to Get Current Location is pressed the function to get the data is being run
+// When Button to Get Current Location is pressed the function to get the data is being run
 // buttonLocation.on("click", function (event) {
 //   event.preventDefault();
 //   getCurrentLocation();

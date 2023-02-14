@@ -49,34 +49,6 @@ function getEventData(lat, lon, ran) {
     .catch(function (xhr, status, err) {});
 }
 
-// Not Working
-// function getEventInfo() {
-//   let apiKey = ticketmasterKey;
-//   let Id = "K8vZ91756F0";
-
-//   $.ajax({
-//     type: "GET",
-//     // url:
-//     //   "https://app.ticketmaster.com/discovery/v2/events/" +
-//     //   Id +
-//     //   ".json?apikey=" +
-//     //   apiKey,
-//     url: "https://app.ticketmaster.com/discovery/v2/events/G5djZ97WU4Ozh.json?locale=en?apikey=aikirkRksdSnXbNYnM6Juu7rGL6kxPwo",
-//     async: true,
-//     dataType: "json",
-//   }).then(function (promise) {
-//     console.log("Ticketmaster sent you data");
-//     console.log(promise);
-
-//     // Populate cards
-
-//     let eventName = promise._embedded.attractions[0].name;
-
-//     console.log(promise._embedded.attractions[0]);
-//     console.log(eventName);
-//   });
-// }
-
 function createCard(eventInfo) {
   // let eventName = eventInfo.  // Create card elements
 

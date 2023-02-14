@@ -74,10 +74,6 @@ function currentLocErrors(error) {
 //   getCurrentLocation();
 // });
 
-//   slides[slideIndex-1].style.display = "block";
-//   dots[slideIndex-1].className += "active";
-//   setTimeout(showSlides, 2000); // Change image every 2 seconds
-
 let form = $("#form");
 let submitBtn = $("#submit");
 
@@ -138,30 +134,6 @@ function restaurantInfo(city, range) {
   });
 }
 
-    $.ajax({
-      url: urlCity,
-      method: "GET",
-    }).then(function (promise) {
-      let lat = promise[0].lat.toFixed(3);
-      let lon = promise[0].lon.toFixed(3);
-  
-      console.log(lat, lon);
-  
-      const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer 819adGeqBu-wcCONjR2MfPzxN1xl0hSyKdoH3_VHe4DlQsczZAJd5iUlru4Zzzs_aLiA-IU3m0OgtJMbfxx_nKUq-jBdr0jLauzxH5L2YnXDQdmjWNhN66CK70XlY3Yx'
-        }
-      };
-  
-      fetch('https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude=' + lat + '&longitude=' + lon + '&term=restaurants&radius= ' + range + '&sort_by=best_match&limit=5', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-    });
-};
-
 //  $.datepicker.setDefaults({
 //    showOn: "both",
 //    buttonImageOnly: true,
@@ -169,26 +141,26 @@ function restaurantInfo(city, range) {
 //    buttonText: "Calendar"
 //  });
 
-$(document).ready(function() {
+$(document).ready(function () {
   let startDate;
   let endDate;
   $("#date_picker1").datepicker({
-    dateFormat:"mm/dd/yy"
+    dateFormat: "mm/dd/yy",
   });
   $("#date_picker2").datepicker({
-    dateFormat:"mm/dd/yy"
+    dateFormat: "mm/dd/yy",
   });
-    
-  $("date_picker1").change(function(){
-    startDate=$("#date_picker1").val();
+
+  $("date_picker1").change(function () {
+    startDate = $("#date_picker1").val();
     $("#date_selected1").text(startDate);
     //startDate=$(this).datepicker("getDate");
     $("#date_picker2").datepicker("option", "minDate", startDate);
   });
-  $("date_picker2").change(function(){
-    endDate=$("#date_picker2").val();
+  $("date_picker2").change(function () {
+    endDate = $("#date_picker2").val();
     $("#date_selected2").text(endDate);
     //endDate=$(this).datepicker("getDate");
     $("#date_picker1").datepicker("option", "maxDate", endDate);
-  })
-})
+  });
+});

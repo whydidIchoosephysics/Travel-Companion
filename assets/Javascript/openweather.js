@@ -145,3 +145,21 @@ submitBtn.on("click", function (event) {
     console.log("Checkbox is unchecked.");
   }
 });
+
+function diffDays(startDate, endDate) { //calculate the number of days between two dates
+  const diffTime = Math.abs(endDate - startDate);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
+}
+
+function filterDate(weatherList, startDate, endDate) { //get target gap between two dates
+  let filteredDates = [];
+  let firstDateIndex = diffDays(new Date(), startDate);
+  let lastDateIndex = diffDays(startDate, endDate) + firstDateIndex;
+
+  for (i = firstDateIndex; i <= lastDateIndex && i < weatherList.length; i++) {
+    filteredDates.push(weatherList[i]);
+  }
+
+  return filteredDates;
+}

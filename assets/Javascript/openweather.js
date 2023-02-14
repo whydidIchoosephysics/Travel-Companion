@@ -163,3 +163,16 @@ function filterDate(weatherList, startDate, endDate) { //get target gap between 
 
   return filteredDates;
 }
+
+function forecastErrorMessage() {
+  createNavItem();
+  createCard();
+
+  let errorMessage = $("<div>");
+  errorMessage.addClass("cardContainer col-lg-12 col-md-12 col-sm-12");
+    
+  let errorText = $("<h3>");
+  errorText.text("sorry impossible to get forecast for this trip");
+  errorMessage.append(errorText);
+  $("#weatherRow").append(errorMessage);
+}

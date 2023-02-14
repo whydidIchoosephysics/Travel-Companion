@@ -32,14 +32,19 @@ function getEventData(lat, lon, ran) {
 
       // Populate cards
 
-      let eventName = promise._embedded.attractions[0].name;
-      let ID = promise._embedded.attractions[0].id;
-      let imageURL = promise._embedded.attractions[0].images[1].url;
+      let eventName = promise._embedded.events[0].name;
+      let ID = promise._embedded.events[0].id;
+      let imageURL = promise._embedded.events[0].images[1].url;
 
-      console.log(promise._embedded.attractions[0]);
+      // console.log(promise._embedded.events[0]);
       console.log(eventName);
       console.log(ID);
-      console.log(imageURL);
+      console.log(promise._embedded.events);
+
+      for (var i = 0; i < promise._embedded.events.length; i++) {
+        idShowInfo(promise._embedded.events[i].id);
+        console.log(promise._embedded.events[i].id);
+      }
     })
     .catch(function (xhr, status, err) {});
 }
@@ -72,8 +77,9 @@ function getEventData(lat, lon, ran) {
 //   });
 // }
 
-function createCard(eventName, eventImg) {
-  // Create card elements
+function createCard(eventInfo) {
+  // let eventName = eventInfo.  // Create card elements
+
   let cardContainer = $("<div>");
   cardContainer.addClass("cardContainer col-lg-3 col-md-3 col-sm-12");
 
@@ -107,28 +113,23 @@ buttonLocation.on("click", function (event) {
   createCard();
 });
 
-// const eventID = "G5v0Z98m2j-38";
-const eventID = "G5djZ97WU4Ozh";
+// const eventID = "G5djZ97WU4Ozh";
 
-const eventUrl = `https://app.ticketmaster.com/discovery/v2/events/${eventID}.json?apikey=${ticketmasterKey}`;
+function idShowInfo(eventID) {
+  const eventUrl = `https://app.ticketmaster.com/discovery/v2/events/${eventID}.json?apikey=${ticketmasterKey}`;
 
-const eventsUrl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${ticketmasterKey}`;
-
-const attractionUrl = `https://app.ticketmaster.com/discovery/v2/attractions/K8vZ9175BhV.json?apikey=${ticketmasterKey}`;
-
-$.ajax({
-  type: "GET",
-  url: eventUrl,
-  async: true,
-  dataType: "json",
-  success: function (json) {
-    console.log(json);
-
-    // Parse the response.
-    // Do other things.
-  },
-  error: function (xhr, status, err) {
-    // This time, we do not end up here!
-    console.log(err);
-  },
-});
+  $.ajax({
+    type: "GET",
+    url: eventUrl,
+    async: true,
+    dataType: "json",
+    success: function (json) {
+      console.log(json);
+      createCard(json);
+    },
+    error: function (xhr, status, err) {
+      // This time, we do not end up here!
+      console.log(err);
+    },
+  });
+}

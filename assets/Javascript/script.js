@@ -68,15 +68,11 @@ function currentLocErrors(error) {
   }
 }
 
-// // When Button to Get Current Location is pressed the function to get the data is being run
-// buttonLocation.on("click", function (event) {
-//   event.preventDefault();
-//   getCurrentLocation();
-// });
-
-//   slides[slideIndex-1].style.display = "block";
-//   dots[slideIndex-1].className += "active";
-//   setTimeout(showSlides, 2000); // Change image every 2 seconds
+// When Button to Get Current Location is pressed the function to get the data is being run
+buttonLocation.on("click", function (event) {
+  event.preventDefault();
+  getCurrentLocation();
+});
 
 let form = $("#form");
 

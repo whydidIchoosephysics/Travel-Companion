@@ -69,10 +69,10 @@ function currentLocErrors(error) {
 }
 
 // When Button to Get Current Location is pressed the function to get the data is being run
-buttonLocation.on("click", function (event) {
-  event.preventDefault();
-  getCurrentLocation();
-});
+// buttonLocation.on("click", function (event) {
+//   event.preventDefault();
+//   getCurrentLocation();
+// });
 
 let form = $("#form");
 let submitBtn = $("#submit");

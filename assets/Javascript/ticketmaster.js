@@ -1,7 +1,7 @@
 const ticketmasterKey = "aikirkRksdSnXbNYnM6Juu7rGL6kxPwo";
 const eventsArea = $("#eventCards");
 let currentCoordinates = "";
-// const buttonLocation = $("#current-loc-button");
+// const submitBtn = $("#submit");
 
 function getEventData(lat, lon, ran) {
   let apiKey = ticketmasterKey;
@@ -99,7 +99,7 @@ function idShowInfo(eventID) {
     dataType: "json",
     success: function (json) {
       const eventsArea = $("#events");
-      createCard();
+
       console.log(json);
       // create Card Elements
       let eventName = json.name;
@@ -144,5 +144,3 @@ function idShowInfo(eventID) {
     },
   });
 }
-
-// createCard();

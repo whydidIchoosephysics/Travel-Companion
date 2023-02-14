@@ -78,7 +78,19 @@ function displayCoordinats() {
           console.log(response);
 
           //clear data before appending 
-          $("#userCityInput").empty();
+          $("#navbarUl").empty();
+          $("#weather").empty();
+          
+          let navItem = $("<li>");
+          navItem.addClass("nav-item");
+
+          let navLink = $("<a>");
+          navLink.addClass("nav-link js-scroll-trigger");
+          navLink.attr("href", "#page-top");
+          navLink.text("Home");
+          navItem.append(navLink);
+
+          $("#navbarUl").append(navItem);
                 
           createNavItem();
           createCard();
@@ -142,10 +154,24 @@ submitBtn.on("click", function (event) {
     displayCoordinats();
   }
   else {
+    $("#navbarUl").empty();
+    $("#weather").empty();
+          
+    let navItem = $("<li>");
+    navItem.addClass("nav-item");
+
+    let navLink = $("<a>");
+    navLink.addClass("nav-link js-scroll-trigger");
+    navLink.attr("href", "#page-top");
+    navLink.text("Home");
+    navItem.append(navLink);
+
+    $("#navbarUl").append(navItem);
     console.log("Checkbox is unchecked.");
   }
 });
 
+//if (startDate == moment)
 function diffDays(startDate, endDate) { //calculate the number of days between two dates
   const diffTime = Math.abs(endDate - startDate);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));

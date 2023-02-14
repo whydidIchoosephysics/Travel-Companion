@@ -1,3 +1,7 @@
+function validateForm() {
+  
+}
+
 let slideIndex = 0;
 showSlides();
 

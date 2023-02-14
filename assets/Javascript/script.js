@@ -89,7 +89,16 @@ submitBtn.on("click", function (event) {
   console.log(endDate);
   console.log(range);
 
-  restaurantInfo(cityName, range);
+
+  if ($('#isRestaurantsSelected').is(':checked')) {
+    console.log("Checkbox is checked.");
+    restaurantInfo(cityName, range);
+  }
+  else {
+    console.log("Restaurants checkbox is unchecked.");
+  }
+
+  
 });
 
 function cityNameToCoordinates() {}

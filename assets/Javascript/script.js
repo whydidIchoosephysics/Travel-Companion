@@ -76,20 +76,14 @@ function currentLocErrors(error) {
 //   getCurrentLocation();
 // });
 
-//   slides[slideIndex-1].style.display = "block";  
-//   dots[slideIndex-1].className += "active";
-//   setTimeout(showSlides, 2000); // Change image every 2 seconds
-
-
 let form = $("#form");
-
 let submitBtn = $("#submit");
 
 submitBtn.on("click", function (event) {
   event.preventDefault();
   let cityName = $("#userCityInput").val().trim();
-  let startDate = $("#userStartDate").val().trim();
-  let endDate = $("#userEndDate").val().trim();
+  let startDate = $("#date_picker1").val().trim();
+  let endDate = $("#date_picker2").val().trim();
   let range = $("#formLocationRange").val();
 
   console.log(cityName);
@@ -137,3 +131,34 @@ function restaurantInfo(city, range) {
         .catch(err => console.error(err));
     });
 };
+
+//  $.datepicker.setDefaults({
+//    showOn: "both",
+//    buttonImageOnly: true,
+//    buttonImage: "calendar.gif",
+//    buttonText: "Calendar"
+//  });
+
+$(document).ready(function() {
+  let startDate;
+  let endDate;
+  $("#date_picker1").datepicker({
+    dateFormat:"mm/dd/yy"
+  });
+  $("#date_picker2").datepicker({
+    dateFormat:"mm/dd/yy"
+  });
+    
+  $("date_picker1").change(function(){
+    startDate=$("#date_picker1").val();
+    $("#date_selected1").text(startDate);
+    //startDate=$(this).datepicker("getDate");
+    $("#date_picker2").datepicker("option", "minDate", startDate);
+  });
+  $("date_picker2").change(function(){
+    endDate=$("#date_picker2").val();
+    $("#date_selected2").text(endDate);
+    //endDate=$(this).datepicker("getDate");
+    $("#date_picker1").datepicker("option", "maxDate", endDate);
+  })
+})

@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project 1</title>
 
+    <!-- jQuery calendar picker -->
+    <META NAME="DESCRIPTION" CONTENT="">
+    <META NAME="KEYWORDS" CONTENT="">
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+
     <!-- jQuery CSS -->
     <link
       rel="stylesheet"
@@ -57,7 +65,7 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto" id="navbarUl">
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#page-top">Home</a>
           </li>
@@ -65,12 +73,7 @@
             <a class="nav-link js-scroll-trigger" href="#events">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#weather">Weather</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#restaurants"
-              >Restaurants</a
-            >
+            <a class="nav-link js-scroll-trigger" href="#restaurants">Restaurants</a>
           </li>
         </ul>
       </div>
@@ -148,13 +151,13 @@
                   </button>
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4 date_selected1">
                   <label for="startDate">Start date: </label>
-                  <input type="date" class="form-control" id="userStartDate" />
+                  <input type="text" class="form-control" id="date_picker1" />
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-4 date_selected2">
                   <label for="endDate">End date: </label>
-                  <input type="date" class="form-control" id="userEndDate" />
+                  <input type="text" class="form-control" id="date_picker2" />
                 </div>
                 <div class="form-group col-md-4">
                   <label for="formLocationRange">Range</label>
@@ -173,6 +176,24 @@
                     <option value="750" label="750"></option>
                     <option value="1000" label="1000"></option>
                   </datalist>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="form-check">Choose options to show:</label>
+                  <div class="form-check-inline col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" id="isEventSelected" value="">Events
+                    </label>
+                  </div>
+                  <div class="form-check-inline col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" id="isWeatherSelected" value="">Weather
+                    </label>
+                  </div>
+                  <div class="form-check-inline col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" id="isRestaurantsSelected" value="">Restaurants
+                    </label>
+                  </div>
                 </div>
                 <div class="form-group text-center col-md-12">
                   <button type="submit" class="btn btn-primary" id="submit">Submit</button>
@@ -262,85 +283,10 @@
       </section>
 
       <!-- Weather -->
-      <section id="weather" class="section-padding section-connector">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12" data-aos="fade-up" data-aos-delay="100">
-              <div class="setion-title">
-                <h3>Weather</h3>
-                <div class="line"></div>
-              </div>
-            </div>
-
-            <!-- Card 1 -->
-            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
-              <div class="card">
-                <img
-                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
-                  class="card-img-top"
-                  alt=""
-                />
-                <div class="card-body">
-                  <h3 class="card-title">Prework Study Guide</h3>
-                  <p class="card-text">Description</p>
-                  <a href="#" class="btn btn-primary">GitHub Page</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
-              <div class="card">
-                <img
-                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
-                  class="card-img-top"
-                  alt=""
-                />
-                <div class="card-body">
-                  <h3 class="card-title">Prework Study Guide</h3>
-                  <p class="card-text">Description</p>
-                  <a href="#" class="btn btn-primary">GitHub Page</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
-              <div class="card">
-                <img
-                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
-                  class="card-img-top"
-                  alt=""
-                />
-                <div class="card-body">
-                  <h3 class="card-title">Prework Study Guide</h3>
-                  <p class="card-text">Description</p>
-                  <a href="#" class="btn btn-primary">GitHub Page</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="cardContainer col-lg-3 col-md-3 col-sm-12">
-              <div class="card">
-                <img
-                  src="../Bootstrap-Portfolio/assets/images/Screenshot 2023-01-03 at 23-17-04 Prework Study Guide.png"
-                  class="card-img-top"
-                  alt=""
-                />
-                <div class="card-body">
-                  <h3 class="card-title">Prework Study Guide</h3>
-                  <p class="card-text">Description</p>
-                  <a href="#" class="btn btn-primary">GitHub Page</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section id="weather" class="section-padding section-connector"></section>
 
       <!-- Restaurants -->
-      <section id="events" class="section-padding section-connector">
+      <section id="restaurants" class="section-padding section-connector">
         <div class="container-fluid">
           <div class="row">
             <div class="col-12" data-aos="fade-up" data-aos-delay="100">
@@ -476,9 +422,16 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    ></script>
 
     <!-- MY JavaScript -->
     <script src="./assets/Javascript/script.js"></script>
     <script src="./assets/Javascript/ticketmaster.js"></script>
+    <script src="./assets/Javascript/openweather.js"></script>
   </body>
 </html>

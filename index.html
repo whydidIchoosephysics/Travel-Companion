@@ -5,11 +5,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project 1</title>
+    <title>Travel Companion</title>
 
     <!-- jQuery calendar picker -->
-    <META NAME="DESCRIPTION" CONTENT="">
-    <META NAME="KEYWORDS" CONTENT="">
+    <meta name="DESCRIPTION" content="" />
+    <meta name="KEYWORDS" content="" />
     <link
       rel="stylesheet"
       href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
@@ -73,7 +73,9 @@
             <a class="nav-link js-scroll-trigger" href="#events">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#restaurants">Restaurants</a>
+            <a class="nav-link js-scroll-trigger" href="#restaurants"
+              >Restaurants</a
+            >
           </li>
         </ul>
       </div>
@@ -133,23 +135,10 @@
               <form action="#" class="row g-3">
                 <div class="form-group col-md-8">
                   <label for="inputCity">City: </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="userCityInput"
-                  />
+                  <input type="text" class="form-control" id="userCityInput" />
                 </div>
 
-                <div class="form-group col-md-3" id="show-coords">
-                  <button
-                    id="current-loc-button"
-                    type="search"
-                    class="btn btn-secondary mx-sm-3 mb-5"
-                    style="margin-top: 35px; margin-bottom: 1rem !important"
-                  >
-                    Use current location
-                  </button>
-                </div>
+                <div class="form-group col-md-3" id=""></div>
 
                 <div class="form-group col-md-4 date_selected1">
                   <label for="startDate">Start date: </label>
@@ -181,22 +170,46 @@
                   <label for="form-check">Choose options to show:</label>
                   <div class="form-check-inline col-md-3">
                     <label class="form-check-label">
-                      <input type="checkbox" class="form-check-input" id="isEventSelected" value="">Events
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="isEventSelected"
+                        value=""
+                      />Events
                     </label>
                   </div>
                   <div class="form-check-inline col-md-3">
                     <label class="form-check-label">
-                      <input type="checkbox" class="form-check-input" id="isWeatherSelected" value="">Weather
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="isWeatherSelected"
+                        value=""
+                      />Weather
                     </label>
                   </div>
                   <div class="form-check-inline col-md-3">
                     <label class="form-check-label">
-                      <input type="checkbox" class="form-check-input" id="isRestaurantsSelected" value="">Restaurants
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="isRestaurantsSelected"
+                        value=""
+                      />Restaurants
                     </label>
                   </div>
                 </div>
                 <div class="form-group text-center col-md-12">
-                  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                  <button type="submit" class="btn btn-primary" id="submit">
+                    Submit
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="current-loc-button"
+                  >
+                    Use current location
+                  </button>
                 </div>
               </form>
             </div>
@@ -207,7 +220,7 @@
       <!-- Events -->
       <section id="events" class="section-padding section-connector">
         <div class="container-fluid">
-          <div class="row">
+          <div class="row" id="eventCards">
             <div class="col-12" data-aos="fade-up" data-aos-delay="100">
               <div class="setion-title">
                 <h3>Events</h3>
@@ -348,12 +361,8 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    ></script>
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <!-- MY JavaScript -->
     <script src="./assets/Javascript/script.js"></script>

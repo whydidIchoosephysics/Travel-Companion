@@ -1,16 +1,16 @@
-const ticketmasterKey = "MwYYGqDzXc2DG7lbU0nTvjF0f0KBU9Aj";
-const eventsArea = $("#events");
+const ticketmasterKey = "aikirkRksdSnXbNYnM6Juu7rGL6kxPwo";
+const eventsArea = $("#eventCards");
 let currentCoordinates = "";
 // const buttonLocation = $("#current-loc-button");
 
 function getEventData(lat, lon, ran) {
   let apiKey = ticketmasterKey;
-  let typeofEvent = "/discovery/v2/attractions";
+  let typeofEvent = "/discovery/v2/events";
   let numberofEvents = "5";
-  let latitude = "53.483959";
-  let longitude = "-2.244644";
+  let latitude = "51.507";
+  let longitude = "-0.1276";
   let latlon = latitude + "," + longitude;
-  let range = 100;
+  let range = 1000;
 
   $.ajax({
     type: "GET",
@@ -32,20 +32,26 @@ function getEventData(lat, lon, ran) {
 
       // Populate cards
 
-      let eventName = promise._embedded.attractions[0].name;
-      let ID = promise._embedded.attractions[0].id;
-      let imageURL = promise._embedded.attractions[0].images[1];
+      let eventName = promise._embedded.events[0].name;
+      let ID = promise._embedded.events[0].id;
+      let imageURL = promise._embedded.events[0].images[1].url;
 
-      console.log(promise._embedded.attractions[0]);
+      // console.log(promise._embedded.events[0]);
       console.log(eventName);
       console.log(ID);
-      console.log(imageURL);
+      console.log(promise._embedded.events);
+
+      for (var i = 0; i < promise._embedded.events.length; i++) {
+        idShowInfo(promise._embedded.events[i].id);
+        console.log(promise._embedded.events[i].id);
+      }
     })
     .catch(function (xhr, status, err) {});
 }
 
-function createCard() {
-  // Create card elements
+function createCard(eventInfo) {
+  // let eventName = eventInfo.  // Create card elements
+
   let cardContainer = $("<div>");
   cardContainer.addClass("cardContainer col-lg-3 col-md-3 col-sm-12");
 
@@ -75,4 +81,27 @@ function createCard() {
 
 buttonLocation.on("click", function (event) {
   getEventData();
+  // getEventInfo();
+  createCard();
 });
+
+// const eventID = "G5djZ97WU4Ozh";
+
+function idShowInfo(eventID) {
+  const eventUrl = `https://app.ticketmaster.com/discovery/v2/events/${eventID}.json?apikey=${ticketmasterKey}`;
+
+  $.ajax({
+    type: "GET",
+    url: eventUrl,
+    async: true,
+    dataType: "json",
+    success: function (json) {
+      console.log(json);
+      createCard(json);
+    },
+    error: function (xhr, status, err) {
+      // This time, we do not end up here!
+      console.log(err);
+    },
+  });
+}

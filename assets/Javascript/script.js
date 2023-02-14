@@ -128,28 +128,28 @@ function restaurantInfo(city, range) {
     fetch('https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude=' + lat + '&longitude=' + lon + '&term=restaurants&radius= ' + range + '&sort_by=best_match&limit=5', options)
       .then(response => response.json())
       .then(response => {
+        console.log(response);
 
-        console.log(response)
+        for (let i = 0; i < response.businesses.length; i++) {
+          let name = $('<h5>' + response.businesses[i].name + '<h5>');
+          let image = response.businesses[i].image_url;
+          let yelpUrl = response.businesses[i].url
 
-        for (i = 0; i < response.businesses.length; i++) {
-      let name = $('<h5>' + response.businesses[i].name + '<h5>');
+          let foodCard = $('<div>').addClass('card w-auto').appendTo('#restaurants');
+          let imageContainer = $('<img>').addClass('card-img-top small-card-image').appendTo(foodCard);
+          let foodCardInfo = $('<div>').addClass('card-body').appendTo(foodCard);
 
-      let address = $('<p>' + response.businesses[i].location.address1 + '<p>');
-      let image = response.businesses[i].image_url;
-
-
-      let foodCard = $('<div>').addClass('card w-auto').appendTo('#restaurants');
-      let imageContainer = $('<img>').addClass('card-img-top small-card-image').appendTo(foodCard)
-      let foodCardInfo = $('<div>').addClass('card-body').appendTo(foodCard);
-
-
-      $(name).addClass('card-title').appendTo(foodCardInfo)
-      $(address).addClass('card-text').appendTo(foodCardInfo)
-      $(imageContainer).attr('src', image)
-    }
-  })
-    .catch(err => console.error(err));
-});
+          $(name).addClass('card-title').appendTo(foodCardInfo);
+          for (let j = 0; j < response.businesses[i].categories.length; j++) {
+            let categoryTitle = response.businesses[i].categories[j].title;
+            $('<p>').addClass('card-text').text(categoryTitle).appendTo(foodCardInfo);
+          }
+          $(imageContainer).attr('src', image);
+          
+        }
+      })
+      .catch(err => console.error(err));
+  });
 };
 
 //  $.datepicker.setDefaults({

@@ -1,5 +1,5 @@
 const ticketmasterKey = "aikirkRksdSnXbNYnM6Juu7rGL6kxPwo";
-const eventsArea = $("#events");
+const eventsArea = $("#eventCards");
 let currentCoordinates = "";
 // const buttonLocation = $("#current-loc-button");
 

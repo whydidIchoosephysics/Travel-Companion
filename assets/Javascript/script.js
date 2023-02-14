@@ -143,7 +143,7 @@ $(document).ready(function() {
   let startDate;
   let endDate;
   $("#date_picker1").datepicker({
-    dateFormat: "mm/dd/yy"
+    dateFormat:"mm/dd/yy"
   });
   $("#date_picker2").datepicker({
     dateFormat:"mm/dd/yy"

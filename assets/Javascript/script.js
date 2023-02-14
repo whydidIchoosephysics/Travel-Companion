@@ -131,7 +131,7 @@ function restaurantInfo(city, range) {
         console.log(response);
 
         for (let i = 0; i < response.businesses.length; i++) {
-          let name = $('<h5>' + response.businesses[i].name + '<h5>');
+          let name = $('<h5>' + response.businesses[i].name + '</h5>');
           let image = response.businesses[i].image_url;
           let yelpUrl = response.businesses[i].url
 
@@ -144,8 +144,12 @@ function restaurantInfo(city, range) {
             let categoryTitle = response.businesses[i].categories[j].title;
             $('<p>').addClass('card-text').text(categoryTitle).appendTo(foodCardInfo);
           }
+          $('<a>').addClass('btn btn-outline-secondary height-auto btn-sm').text('Visit Site').attr({
+            'href': yelpUrl,
+            'target': '_blank'
+          }).appendTo(foodCardInfo);
           $(imageContainer).attr('src', image);
-          
+
         }
       })
       .catch(err => console.error(err));

@@ -138,8 +138,8 @@ function restaurantInfo(city, range) {
       let image = response.businesses[i].image_url;
 
 
-      let foodCard = $('<div>').addClass('card').appendTo('#restaurants');
-      let imageContainer = $('<img>').addClass('card-img-top').appendTo(foodCard)
+      let foodCard = $('<div>').addClass('card w-auto').appendTo('#restaurants');
+      let imageContainer = $('<img>').addClass('card-img-top small-card-image').appendTo(foodCard)
       let foodCardInfo = $('<div>').addClass('card-body').appendTo(foodCard);
 
 

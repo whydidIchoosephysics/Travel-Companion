@@ -196,22 +196,21 @@ img {
 }
 
 datalist {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    writing-mode: vertical-lr;
-    width: 200px;
-  }
-  
-  option {
-    padding: 0;
-  }
-  
-  input[type="range"] {
-    width: 200px;
-    margin: 0;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 200px;
+}
+
+option {
+  padding: 0;
+}
+
+input[type="range"] {
+  width: 200px;
+  margin: 0;
+}
 
 /* Footer */
 footer {
@@ -235,4 +234,10 @@ footer ul > li > a {
 
 footer p {
   color: white;
+}
+
+.small-card-image {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
 }

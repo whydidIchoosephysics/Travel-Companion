@@ -135,3 +135,13 @@ function displayCoordinats() {
   });
 };
 
+submitBtn.on("click", function (event) {
+  event.preventDefault();
+  if ($('#isWeatherSelected').is(':checked')) {
+    console.log("Checkbox is checked.");
+    displayCoordinats();
+  }
+  else {
+    console.log("Checkbox is unchecked.");
+  }
+});

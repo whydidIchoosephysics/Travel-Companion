@@ -41,7 +41,6 @@ function getEventData(lat, lon) {
       console.log(eventName);
       console.log(ID);
       console.log(promise._embedded.events);
-      createCard();
       for (var i = 0; i < promise._embedded.events.length; i++) {
         idShowInfo(promise._embedded.events[i].id);
         console.log(promise._embedded.events[i].id);
@@ -49,38 +48,6 @@ function getEventData(lat, lon) {
     })
     .catch(function (xhr, status, err) {});
 }
-
-function createCard() {
-  // let eventName = eventInfo.  // Create card elements
-
-  let cardContainer = $("<div>");
-  cardContainer.addClass("cardContainer col-lg-3 col-md-3 col-sm-12");
-
-  let card = $("<div>");
-  card.addClass("card");
-
-  let cardBody = $("<div>");
-  cardBody.addClass("card-body");
-
-  let cardTitle = $("<h3>").text("Event 1");
-  cardTitle.addClass("card-title");
-
-  let cardText = $("<p>").text("Event 1");
-  cardText.addClass("card-text");
-
-  let cardButton = $("<a>").text("See more");
-  cardButton.addClass("btn btn-primary");
-
-  // Create card structure
-  cardBody.append(cardTitle, cardText, cardButton);
-  card.append(cardBody);
-  cardContainer.append(card);
-
-  // Add card to Page Area
-  eventsArea.append(cardContainer);
-}
-
-// const eventID = "G5djZ97WU4Ozh";
 
 function idShowInfo(eventID) {
   const eventUrl = `https://app.ticketmaster.com/discovery/v2/events/${eventID}.json?apikey=${ticketmasterKey}`;
@@ -92,7 +59,6 @@ function idShowInfo(eventID) {
     dataType: "json",
     success: function (json) {
       const eventsArea = $("#events");
-      createCard();
       console.log(json);
       // create Card Elements
       let eventName = json.name;
@@ -166,6 +132,11 @@ function cityNameToCoordinates(cityName) {
 
 submitBtn.on("click", function (event) {
   let cityName = $("#userCityInput").val().trim();
-  getEventData();
-  cityNameToCoordinates(cityName);
+
+  if ($("#isEventSelected").is(":checked")) {
+    console.log("Checkbox is checked.");
+    cityNameToCoordinates(cityName);
+  } else {
+    console.log("Events checkbox is unchecked.");
+  }
 });

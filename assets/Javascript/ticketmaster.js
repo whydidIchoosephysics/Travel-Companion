@@ -69,10 +69,12 @@ function idShowInfo(eventID) {
       // create Card Elements
       let eventName = json.name;
 
-      let ticketLink = JSON.stringify(json.url);
+      let ticketLink = json.url;
       console.log(ticketLink);
 
       let imageLink = json.images[0].url;
+
+      let venueName = json._embedded.venues[0].name;
 
       let cardContainer = $("<div>");
       cardContainer.addClass("cardContainer col-lg-3 col-md-3 col-sm-12");
@@ -90,11 +92,15 @@ function idShowInfo(eventID) {
       let cardTitle = $("<h3>").text(eventName);
       cardTitle.addClass("card-title");
 
-      let cardText = $("<p>").text("Event 1");
+      let cardText = $("<p>").text(venueName);
       cardText.addClass("card-text");
 
-      let cardButton = $("<a>").text("See more");
+      let cardButton = $("<a>").text("Get tickets");
       cardButton.addClass("btn btn-primary");
+      cardButton.attr({
+        href: ticketLink,
+        target: "_blank",
+      });
 
       // Create card structure
       cardBody.append(cardImage, cardTitle, cardText, cardButton);

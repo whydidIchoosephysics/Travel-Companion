@@ -74,6 +74,10 @@ function idShowInfo(eventID) {
 
       let imageLink = json.images[0].url;
 
+      let eventDate = json.dates.start.localDate;
+
+      let eventTime = json.dates.start.localTime;
+
       let venueName = json._embedded.venues[0].name;
 
       let cardContainer = $("<div>");
@@ -95,6 +99,10 @@ function idShowInfo(eventID) {
       let cardText = $("<p>").text(venueName);
       cardText.addClass("card-text");
 
+      let date = $("<p>").text(eventDate);
+
+      let time = $("<p>").text(eventTime);
+
       let cardButton = $("<a>").text("Get tickets");
       cardButton.addClass("btn btn-primary");
       cardButton.attr({
@@ -103,7 +111,7 @@ function idShowInfo(eventID) {
       });
 
       // Create card structure
-      cardBody.append(cardImage, cardTitle, cardText, cardButton);
+      cardBody.append(cardImage, cardTitle, cardText, date, time, cardButton);
       card.append(cardBody);
       cardContainer.append(card);
 

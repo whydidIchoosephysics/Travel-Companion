@@ -69,7 +69,7 @@ function idShowInfo(eventID) {
       // create Card Elements
       let eventName = json.name;
 
-      let ticketLink = JSON.stringify(json.url);
+      let ticketLink = json.url;
       console.log(ticketLink);
 
       let imageLink = json.images[0].url;

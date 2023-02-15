@@ -157,7 +157,7 @@ function restaurantInfo(city, range) {
             .addClass("card-img-top small-card-image")
             .appendTo(foodCard);
           let foodCardInfo = $("<div>")
-            .addClass("card-body")
+            .addClass("card-body d-flex flex-column")
             .appendTo(foodCard);
 
           $(name).addClass("card-title").appendTo(foodCardInfo);
@@ -169,7 +169,7 @@ function restaurantInfo(city, range) {
               .appendTo(foodCardInfo);
           }
           $("<a>")
-            .addClass("btn btn-outline-secondary height-auto btn-sm")
+            .addClass("btn btn-outline-secondary mt-auto btn-sm")
             .text("Visit Site")
             .attr({
               href: yelpUrl,

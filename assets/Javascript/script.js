@@ -89,7 +89,16 @@ submitBtn.on("click", function (event) {
   console.log(endDate);
   console.log(range);
 
-  restaurantInfo(cityName, range);
+
+  if ($('#isRestaurantsSelected').is(':checked')) {
+    console.log("Checkbox is checked.");
+    restaurantInfo(cityName, range);
+  }
+  else {
+    console.log("Restaurants checkbox is unchecked.");
+  }
+
+  
 });
 
 function cityNameToCoordinates() {}
@@ -131,6 +140,10 @@ function restaurantInfo(city, range) {
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
+        $('#restaurants').empty();
+
+        const restaurantsTitleEl = $('<h3>').text('Restaurants:').attr('class', 'col-12');
+        $('#restaurants').append(restaurantsTitleEl)
 
         for (let i = 0; i < response.businesses.length; i++) {
           let name = $("<h5>" + response.businesses[i].name + "</h5>");
@@ -144,7 +157,7 @@ function restaurantInfo(city, range) {
             .addClass("card-img-top small-card-image")
             .appendTo(foodCard);
           let foodCardInfo = $("<div>")
-            .addClass("card-body")
+            .addClass("card-body d-flex flex-column")
             .appendTo(foodCard);
 
           $(name).addClass("card-title").appendTo(foodCardInfo);
@@ -156,7 +169,7 @@ function restaurantInfo(city, range) {
               .appendTo(foodCardInfo);
           }
           $("<a>")
-            .addClass("btn btn-outline-secondary height-auto btn-sm")
+            .addClass("btn btn-outline-secondary mt-auto btn-sm")
             .text("Visit Site")
             .attr({
               href: yelpUrl,

@@ -1,6 +1,16 @@
-function validateForm() {
-  
-}
+$(document).ready(function() {
+  $('#submit').click(function() {
+    if (!$("#userCityInput").val()) {
+      alert("Please fill out all required fields");
+    }
+    else if (!$("#date_picker1").val()) {
+      alert("Please fill out all required fields");
+    }
+    else if (!$("#date_picker2").val()) {
+      alert("Please fill out all required fields");
+    }
+});
+});
 
 let slideIndex = 0;
 showSlides();

@@ -132,16 +132,21 @@
 
           <div class="row">
             <div class="col-md-12" data-aos="fade-up" data-aos-delay="200">
-              <form name="myForm" class="row g-3" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+              <form class="row g-3" id="myForm">
                 <div class="form-group col-md-8">
-                  <label for="inputCity">City: </label>
-                  <input type="text" class="form-control" id="userCityInput" />
+                  <label for="inputCity">City: *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="userCityInput"
+                    required
+                  />
                 </div>
 
                 <div class="form-group col-md-3" id=""></div>
 
                 <div class="form-group col-md-4 date_selected1">
-                  <label for="startDate">Start date: </label>
+                  <label for="startDate">Start date: *</label>
                   <input
                     type="text"
                     class="form-control"
@@ -150,7 +155,7 @@
                   />
                 </div>
                 <div class="form-group col-md-4 date_selected2">
-                  <label for="endDate">End date: </label>
+                  <label for="endDate">End date: *</label>
                   <input
                     type="text"
                     class="form-control"
@@ -159,7 +164,7 @@
                   />
                 </div>
                 <div class="form-group col-md-4">
-                  <label for="formLocationRange">Range</label>
+                  <label for="formLocationRange">Range: *</label>
                   <input
                     type="range"
                     min="0"

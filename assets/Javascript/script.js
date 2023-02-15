@@ -1,3 +1,17 @@
+$(document).ready(function() {
+  $('#submit').click(function() {
+    if (!$("#userCityInput").val()) {
+      alert("Please fill out all required fields");
+    }
+    else if (!$("#date_picker1").val()) {
+      alert("Please fill out all required fields");
+    }
+    else if (!$("#date_picker2").val()) {
+      alert("Please fill out all required fields");
+    }
+});
+});
+
 let slideIndex = 0;
 showSlides();
 
@@ -183,33 +197,33 @@ function restaurantInfo(city, range) {
   });
 }
 
-//  $.datepicker.setDefaults({
-//    showOn: "both",
-//    buttonImageOnly: true,
-//    buttonImage: "calendar.gif",
-//    buttonText: "Calendar"
-//  });
+$(document).ready(function() {
+  $("#date_picker1").datepicker();
+  $('#datePickerIcon1').click(function() {
+    $("#date_picker1").focus();
+  });
 
-$(document).ready(function () {
-  let startDate;
-  let endDate;
+  $("#date_picker2").datepicker();
+  $('#datePickerIcon2').click(function() {
+    $("#date_picker2").focus();
+  });
+
+  let startDateCalendar;
+  let endDateCalendar;
   $("#date_picker1").datepicker({
+    minDate: 0,
     dateFormat: "mm/dd/yy",
   });
   $("#date_picker2").datepicker({
     dateFormat: "mm/dd/yy",
   });
 
-  $("date_picker1").change(function () {
-    startDate = $("#date_picker1").val();
-    $("#date_selected1").text(startDate);
-    //startDate=$(this).datepicker("getDate");
-    $("#date_picker2").datepicker("option", "minDate", startDate);
+  $("#date_picker1").change(function () {
+    startDateCalendar = $(this).datepicker("getDate");
+    $("#date_picker2").datepicker("option", "minDate", startDateCalendar);
   });
-  $("date_picker2").change(function () {
-    endDate = $("#date_picker2").val();
-    $("#date_selected2").text(endDate);
-    //endDate=$(this).datepicker("getDate");
-    $("#date_picker1").datepicker("option", "maxDate", endDate);
+  $("#date_picker2").change(function () {
+    endDateCalendar = $(this).datepicker("getDate");
+    $("#date_picker1").datepicker("option", "maxDate", endDateCalendar);
   });
 });

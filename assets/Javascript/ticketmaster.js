@@ -113,6 +113,7 @@ function idShowInfo(eventID) {
 
       let cardImage = $("<img>");
       cardImage.attr("src", imageLink);
+      cardImage.addClass("card-img-top small-card-image");
 
       let cardTitle = $("<h3>").text(eventName);
       cardTitle.addClass("card-title");

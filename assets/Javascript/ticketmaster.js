@@ -166,6 +166,11 @@ function cityNameToCoordinates(cityName) {
 
 submitBtn.on("click", function (event) {
   let cityName = $("#userCityInput").val().trim();
-  getEventData();
-  cityNameToCoordinates(cityName);
+
+  if ($("#isEventsSelected").is(":checked")) {
+    console.log("Checkbox is checked.");
+    cityNameToCoordinates(cityName);
+  } else {
+    console.log("Events checkbox is unchecked.");
+  }
 });

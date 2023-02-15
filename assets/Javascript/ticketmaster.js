@@ -10,6 +10,7 @@ function getEventData(lat, lon) {
   let longitude = lon;
   let latlon = latitude + "," + longitude;
   let range = 1000;
+  eventsArea.empty();
 
   $.ajax({
     type: "GET",
@@ -41,6 +42,10 @@ function getEventData(lat, lon) {
       console.log(eventName);
       console.log(ID);
       console.log(promise._embedded.events);
+
+      const eventsTitleEl = $("<h3>").text("Events:").attr("class", "col-12");
+      $("#events").prepend(eventsTitleEl);
+
       for (var i = 0; i < promise._embedded.events.length; i++) {
         idShowInfo(promise._embedded.events[i].id);
         console.log(promise._embedded.events[i].id);
@@ -60,6 +65,7 @@ function idShowInfo(eventID) {
     success: function (json) {
       const eventsArea = $("#events");
       console.log(json);
+
       // create Card Elements
       let eventName = json.name;
 

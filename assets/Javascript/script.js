@@ -184,12 +184,17 @@ function restaurantInfo(city, range) {
   });
 }
 
-//  $.datepicker.setDefaults({
-//    showOn: "both",
-//    buttonImageOnly: true,
-//    buttonImage: "calendar.gif",
-//    buttonText: "Calendar"
-//  });
+$(document).ready(function() {
+  $("#date_picker1").datepicker();
+  $('#datePickerIcon1').click(function() {
+    $("#date_picker1").focus();
+  });
+
+  $("#date_picker2").datepicker();
+  $('#datePickerIcon2').click(function() {
+    $("#date_picker2").focus();
+  });
+});
 
 $(document).ready(function () {
   let startDate;

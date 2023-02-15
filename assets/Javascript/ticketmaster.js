@@ -1,14 +1,13 @@
 const ticketmasterKey = "aikirkRksdSnXbNYnM6Juu7rGL6kxPwo";
 const eventsArea = $("#eventCards");
 let currentCoordinates = "";
-// const submitBtn = $("#submit");
 
-function getEventData(lat, lon, ran) {
+function getEventData(lat, lon) {
   let apiKey = ticketmasterKey;
   let typeofEvent = "/discovery/v2/events";
   let numberofEvents = "5";
-  let latitude = "51.507";
-  let longitude = "-0.1276";
+  let latitude = lat;
+  let longitude = lon;
   let latlon = latitude + "," + longitude;
   let range = 1000;
 
@@ -81,12 +80,6 @@ function createCard() {
   eventsArea.append(cardContainer);
 }
 
-buttonLocation.on("click", function (event) {
-  getEventData();
-  // getEventInfo();
-  // createCard();
-});
-
 // const eventID = "G5djZ97WU4Ozh";
 
 function idShowInfo(eventID) {
@@ -99,7 +92,7 @@ function idShowInfo(eventID) {
     dataType: "json",
     success: function (json) {
       const eventsArea = $("#events");
-
+      createCard();
       console.log(json);
       // create Card Elements
       let eventName = json.name;
@@ -120,6 +113,7 @@ function idShowInfo(eventID) {
 
       let cardImage = $("<img>");
       cardImage.attr("src", imageLink);
+      cardImage.addClass("card-img-top small-card-image");
 
       let cardTitle = $("<h3>").text(eventName);
       cardTitle.addClass("card-title");
@@ -144,3 +138,34 @@ function idShowInfo(eventID) {
     },
   });
 }
+
+function cityNameToCoordinates(cityName) {
+  const apiKey = "ec5505d77c6eea9afb6162e232ff043c";
+
+  let urlCity =
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
+    cityName +
+    "&limit=1&appid=" +
+    apiKey;
+
+  $.ajax({
+    url: urlCity,
+    method: "GET",
+  }).then(function (promise) {
+    console.log(promise);
+
+    let lat = promise[0].lat.toFixed(3);
+    let lon = promise[0].lon.toFixed(3);
+    let city = cityName;
+
+    console.log(lat, lon);
+
+    getEventData(lat, lon);
+  });
+}
+
+submitBtn.on("click", function (event) {
+  let cityName = $("#userCityInput").val().trim();
+  getEventData();
+  cityNameToCoordinates(cityName);
+});

@@ -20,7 +20,10 @@ As a traveller:
 
 ## Can be accessed at:
 
-https://whydidichoosephysics.github.io/Password-Generator/
+https://whydidichoosephysics.github.io/Travel-Companion/
+
+## Source code:
+https://github.com/whydidIchoosephysics/Travel-Companion/
 
 ## Usage
 
@@ -33,6 +36,22 @@ and request temporary access to the demo server. This will allow our APIs to fun
 * Input the name of your destination, the dates you are interested in, how far you're willing to travel, and tick the options that you wish to see
 
 * Then let the page do its magic and show you all the available information
+
+## Technologies used:
+
+Events and tickets Ticketmaster API:
+
+* https://developer.ticketmaster.com/
+
+Weather forecast OpenWeather API:
+
+* https://openweathermap.org/
+
+Curated restaurants by Yelp Fusion API:
+
+* https://www.yelp.com/developers
+
+
 ## Credits
 
 * V: https://github.com/VanessaDantonio

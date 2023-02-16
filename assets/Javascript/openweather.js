@@ -1,4 +1,30 @@
-function createNavItem() {
+function createNavItemHome() {
+  let navItem = $("<li>");
+  navItem.addClass("nav-item");
+  
+  let navLink = $("<a>");
+  navLink.addClass("nav-link js-scroll-trigger");
+  navLink.attr("href", "#page-top");
+  navLink.text("Home");
+  
+  navItem.append(navLink);
+  $("#navbarUl").append(navItem);
+}
+
+function createNavItemEvents() {
+  let navItem = $("<li>");
+  navItem.addClass("nav-item");
+
+  let navLink = $("<a>");
+  navLink.addClass("nav-link js-scroll-trigger");
+  navLink.attr("href", "#events");
+  navLink.text("Events");
+  
+  navItem.append(navLink);
+  $("#navbarUl").append(navItem);
+}
+
+function createNavItemWeather() {
   let navItem = $("<li>");
   navItem.addClass("nav-item");
 
@@ -6,9 +32,22 @@ function createNavItem() {
   navLink.addClass("nav-link js-scroll-trigger");
   navLink.attr("href", "#weather");
   navLink.text("Weather");
+  
   navItem.append(navLink);
   $("#navbarUl").append(navItem);
+}
 
+function createNavItemRestaurants() {
+  let navItem = $("<li>");
+  navItem.addClass("nav-item");
+
+  let navLink = $("<a>");
+  navLink.addClass("nav-link js-scroll-trigger");
+  navLink.attr("href", "#restaurants");
+  navLink.text("Restaurants");
+  
+  navItem.append(navLink);
+  $("#navbarUl").append(navItem);
 }
 
 function createCard() {
@@ -78,21 +117,8 @@ function displayCoordinats() {
           console.log(response);
 
           //clear data before appending 
-          $("#navbarUl").empty();
           $("#weather").empty();
           
-          let navItem = $("<li>");
-          navItem.addClass("nav-item");
-
-          let navLink = $("<a>");
-          navLink.addClass("nav-link js-scroll-trigger");
-          navLink.attr("href", "#page-top");
-          navLink.text("Home");
-          navItem.append(navLink);
-
-          $("#navbarUl").append(navItem);
-                
-          createNavItem();
           createCard();
           let rowDiv = $("#weatherRow");
           let startDate = new Date($("#date_picker1").val().trim());
@@ -149,25 +175,44 @@ function displayCoordinats() {
 
 submitBtn.on("click", function (event) {
   event.preventDefault();
+  $("#navbarUl").empty();
   if ($('#isWeatherSelected').is(':checked')) {
     console.log("Checkbox is checked.");
     displayCoordinats();
   }
   else {
-    $("#navbarUl").empty();
     $("#weather").empty();
-          
-    let navItem = $("<li>");
-    navItem.addClass("nav-item");
-
-    let navLink = $("<a>");
-    navLink.addClass("nav-link js-scroll-trigger");
-    navLink.attr("href", "#page-top");
-    navLink.text("Home");
-    navItem.append(navLink);
-
-    $("#navbarUl").append(navItem);
     console.log("Checkbox is unchecked.");
+  }
+  
+  if (($('#isEventSelected').is(':checked')) && ($('#isWeatherSelected').is(':not(:checked)')) && ($('#isRestaurantsSelected').is(':not(:checked)'))) {
+    createNavItemHome();
+    createNavItemEvents();
+  } else if (($('#isEventSelected').is(':not(:checked)')) && ($('#isWeatherSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':not(:checked)'))) {
+    createNavItemHome();
+    createNavItemWeather();
+  } else if (($('#isEventSelected').is(':not(:checked)')) && ($('#isWeatherSelected').is(':not(:checked)')) && ($('#isRestaurantsSelected').is(':checked'))) {
+    createNavItemHome();
+    createNavItemRestaurants();
+  } else if (($('#isEventSelected').is(':checked')) && ($('#isWeatherSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':not(:checked)'))) {
+    createNavItemHome();
+    createNavItemEvents();
+    createNavItemWeather();
+  } else if (($('#isEventSelected').is(':checked')) && ($('#isWeatherSelected').is(':not(:checked)')) && ($('#isRestaurantsSelected').is(':checked'))) {
+    createNavItemHome();
+    createNavItemEvents();
+    createNavItemRestaurants();
+  } else if (($('#isEventSelected').is(':not(:checked)')) && ($('#isWeatherSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':checked'))) {
+    createNavItemHome();
+    createNavItemWeather();
+    createNavItemRestaurants();
+  } else if (($('#isEventSelected').is(':checked')) && ($('#isWeatherSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':checked'))) {
+    createNavItemHome();
+    createNavItemEvents();
+    createNavItemWeather();
+    createNavItemRestaurants();
+  } else {
+    createNavItemHome();  
   }
 });
 
@@ -191,7 +236,6 @@ function filterDate(weatherList, startDate, endDate) { //get target gap between 
 }
 
 function forecastErrorMessage() {
-  createNavItem();
   createCard();
 
   let errorMessage = $("<div>");

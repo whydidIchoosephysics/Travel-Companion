@@ -12,6 +12,19 @@ $(document).ready(function() {
 });
 });
 
+function createNavItemHome() {
+  let navItem = $("<li>");
+  navItem.addClass("nav-item");
+  
+  let navLink = $("<a>");
+  navLink.addClass("nav-link js-scroll-trigger");
+  navLink.attr("href", "#page-top");
+  navLink.text("Home");
+  
+  navItem.append(navLink);
+  $("#navbarUl").append(navItem);
+}
+
 let slideIndex = 0;
 showSlides();
 
@@ -198,6 +211,8 @@ function restaurantInfo(city, range) {
 }
 
 $(document).ready(function() {
+  createNavItemHome();
+
   $("#date_picker1").datepicker();
   $('#datePickerIcon1').click(function() {
     $("#date_picker1").focus();

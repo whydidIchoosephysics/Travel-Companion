@@ -10,7 +10,6 @@ body {
 }
 
 a {
-  color: rgb(96, 25, 47);
   transition: all 0.35s;
   text-decoration: none;
 }
@@ -52,12 +51,13 @@ section {
 }
 
 section h2 {
+  padding-bottom: 60px;
+  text-align: center;
   font-size: 50px;
 }
 
 /* Navigation bar styles */
 #mainNav {
-  border-color: brown;
   background-color: #21325a;
   transition: all 0.35s;
   font-family: "Catamaran", "Helvetica", "Arial", "sans-serif";

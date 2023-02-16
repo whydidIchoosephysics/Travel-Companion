@@ -11,19 +11,6 @@ function createNavItemHome() {
   $("#navbarUl").append(navItem);
 }
 
-function createNavItemEvents() {
-  let navItem = $("<li>");
-  navItem.addClass("nav-item");
-
-  let navLink = $("<a>");
-  navLink.addClass("nav-link js-scroll-trigger");
-  navLink.attr("href", "#events");
-  navLink.text("Events");
-  
-  navItem.append(navLink);
-  $("#navbarUl").append(navItem);
-}
-
 function createNavItemWeather() {
   let navItem = $("<li>");
   navItem.addClass("nav-item");
@@ -32,6 +19,19 @@ function createNavItemWeather() {
   navLink.addClass("nav-link js-scroll-trigger");
   navLink.attr("href", "#weather");
   navLink.text("Weather");
+  
+  navItem.append(navLink);
+  $("#navbarUl").append(navItem);
+}
+
+function createNavItemEvents() {
+  let navItem = $("<li>");
+  navItem.addClass("nav-item");
+
+  let navLink = $("<a>");
+  navLink.addClass("nav-link js-scroll-trigger");
+  navLink.attr("href", "#events");
+  navLink.text("Events");
   
   navItem.append(navLink);
   $("#navbarUl").append(navItem);
@@ -71,7 +71,7 @@ function createCard() {
   sectionTitle.addClass("section-title");
   titleDiv.append(sectionTitle);
 
-  let weatherTitle = $("<h3>");
+  let weatherTitle = $("<h2>");
   weatherTitle.append("Weather");
 
   let lineDiv = $("<div>");
@@ -185,31 +185,31 @@ submitBtn.on("click", function (event) {
     console.log("Checkbox is unchecked.");
   }
   
-  if (($('#isEventSelected').is(':checked')) && ($('#isWeatherSelected').is(':not(:checked)')) && ($('#isRestaurantsSelected').is(':not(:checked)'))) {
-    createNavItemHome();
-    createNavItemEvents();
-  } else if (($('#isEventSelected').is(':not(:checked)')) && ($('#isWeatherSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':not(:checked)'))) {
+  if (($('#isWeatherSelected').is(':checked')) && ($('#isEventSelected').is(':not(:checked)')) && ($('#isRestaurantsSelected').is(':not(:checked)'))) {
     createNavItemHome();
     createNavItemWeather();
-  } else if (($('#isEventSelected').is(':not(:checked)')) && ($('#isWeatherSelected').is(':not(:checked)')) && ($('#isRestaurantsSelected').is(':checked'))) {
-    createNavItemHome();
-    createNavItemRestaurants();
-  } else if (($('#isEventSelected').is(':checked')) && ($('#isWeatherSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':not(:checked)'))) {
+  } else if (($('#isWeatherSelected').is(':not(:checked)')) && ($('#isEventSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':not(:checked)'))) {
     createNavItemHome();
     createNavItemEvents();
+  } else if (($('#isWeatherSelected').is(':not(:checked)')) && ($('#isEventSelected').is(':not(:checked)')) && ($('#isRestaurantsSelected').is(':checked'))) {
+    createNavItemHome();
+    createNavItemRestaurants();
+  } else if (($('#isWeatherSelected').is(':checked')) && ($('#isEventSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':not(:checked)'))) {
+    createNavItemHome();
     createNavItemWeather();
-  } else if (($('#isEventSelected').is(':checked')) && ($('#isWeatherSelected').is(':not(:checked)')) && ($('#isRestaurantsSelected').is(':checked'))) {
-    createNavItemHome();
     createNavItemEvents();
-    createNavItemRestaurants();
-  } else if (($('#isEventSelected').is(':not(:checked)')) && ($('#isWeatherSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':checked'))) {
+  } else if (($('#isWeatherSelected').is(':checked')) && ($('#isEventSelected').is(':not(:checked)')) && ($('#isRestaurantsSelected').is(':checked'))) {
     createNavItemHome();
     createNavItemWeather();
     createNavItemRestaurants();
-  } else if (($('#isEventSelected').is(':checked')) && ($('#isWeatherSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':checked'))) {
+  } else if (($('#isWeatherSelected').is(':not(:checked)')) && ($('#isEventSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':checked'))) {
     createNavItemHome();
     createNavItemEvents();
+    createNavItemRestaurants();
+  } else if (($('#isWeatherSelected').is(':checked')) && ($('#isEventSelected').is(':checked')) && ($('#isRestaurantsSelected').is(':checked'))) {
+    createNavItemHome();
     createNavItemWeather();
+    createNavItemEvents();
     createNavItemRestaurants();
   } else {
     createNavItemHome();  

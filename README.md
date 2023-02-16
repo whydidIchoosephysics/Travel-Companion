@@ -31,11 +31,13 @@ As a traveller:
 * SO THAT I can discover local events, check weather update, and find the best restaurants and activities in my location
 
 ## Can be accessed at:
-
 https://whydidichoosephysics.github.io/Travel-Companion/
 
 ## Source code:
 https://github.com/whydidIchoosephysics/Travel-Companion/
+
+## Presentation and Demo:
+https://docs.google.com/presentation/d/1ODVeMcUSopp5IjNyjUEQJdRvRSfvWk3Djvx-TS8Wqso/edit?usp=sharing
 
 
 ## Technologies used:

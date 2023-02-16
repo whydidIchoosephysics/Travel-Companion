@@ -6,6 +6,18 @@ An application to make your travels easier to your next destiantion. Just tell u
 
 ![My Image](./assets/Images/pageScreenshot1.png)
 
+## Usage
+
+* Before launching site please make sure to go to:
+
+https://cors-anywhere.herokuapp.com/corsdemo
+
+and request temporary access to the demo server. This will allow our APIs to function properly in the frontend.
+
+* Input the name of your destination, the dates you are interested in, how far you're willing to travel, and tick the options that you wish to see
+
+* Then let the page do its magic and show you all the available information
+
 ## Motivation for development
 
 With so many options of activities and restaurants we wanted to create something to help users plan their trips and provide real time information of events, food and weather in a chosen destination.
@@ -20,19 +32,27 @@ As a traveller:
 
 ## Can be accessed at:
 
-https://whydidichoosephysics.github.io/Password-Generator/
+https://whydidichoosephysics.github.io/Travel-Companion/
 
-## Usage
+## Source code:
+https://github.com/whydidIchoosephysics/Travel-Companion/
 
-* Before launching site please make sure to go to:
 
-https://cors-anywhere.herokuapp.com/corsdemo
+## Technologies used:
 
-and request temporary access to the demo server. This will allow our APIs to function properly in the frontend.
+Events and tickets Ticketmaster API:
 
-* Input the name of your destination, the dates you are interested in, how far you're willing to travel, and tick the options that you wish to see
+* https://developer.ticketmaster.com/
 
-* Then let the page do its magic and show you all the available information
+Weather forecast OpenWeather API:
+
+* https://openweathermap.org/
+
+Curated restaurants by Yelp Fusion API:
+
+* https://www.yelp.com/developers
+
+
 ## Credits
 
 * V: https://github.com/VanessaDantonio

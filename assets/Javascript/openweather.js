@@ -236,13 +236,20 @@ function filterDate(weatherList, startDate, endDate) { //get target gap between 
 }
 
 function forecastErrorMessage() {
-  createCard();
 
   let errorMessage = $("<div>");
-  errorMessage.addClass("cardContainer col-lg-12 col-md-12 col-sm-12");
+  errorMessage.addClass("cardContainer col-lg-10 col-md-10 col-sm-10");
+  errorMessage.css({"margin": "100px", "padding": "80px", "background-color": "#21325a", "color":"blanchedalmond"});
     
-  let errorText = $("<h3>");
-  errorText.text("sorry impossible to get forecast for this trip");
-  errorMessage.append(errorText);
+  let sorryText = $("<h3>");
+  sorryText.text("Sorry.");
+  sorryText.css("padding-bottom","30px");
+  let requestText = $("<h3>");
+  requestText.text("Unfortunately the requested date is outside the scope of the weather forecast that we can return.");
+  let tryAgainText = $("<h3>");
+  tryAgainText.text("Please try again when you are close to your trip.");
+  errorMessage.append(sorryText);
+  errorMessage.append(requestText);
+  errorMessage.append(tryAgainText);
   $("#weatherRow").append(errorMessage);
 }

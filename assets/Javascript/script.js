@@ -1,13 +1,9 @@
 $(document).ready(function() {
   $('#submit').click(function() {
-    if (!$("#userCityInput").val()) {
-      alert("Please fill out all required fields");
+    if ((!$("#userCityInput").val()) || (!$("#date_picker1").val()) || (!$("#date_picker2").val())) {
+      $('#errorModal').modal()
     }
-    else if (!$("#date_picker1").val()) {
-      alert("Please fill out all required fields");
-    }
-    else if (!$("#date_picker2").val()) {
-      alert("Please fill out all required fields");
+    else {
     }
 });
 });
